@@ -198,7 +198,7 @@ Loss = Dice_Loss + Categorical_Crossentropy
 |Test IoU      | 0.8427       | > 0.75    | ✅ Excelente|
 
 
-### 8.2 Análise por Classe:
+### 9.2 Análise por Classe:
 
 |Classe             | IoU    | Dice   | Precision | Recall|
 |-------------------|--------|-------|---------|--------|
@@ -207,7 +207,7 @@ Loss = Dice_Loss + Categorical_Crossentropy
 |Borda (Edge)       | 0.7435 | 0.8532 | 0.8312 | 0.8758|
 
 
-### 8.3 Benefícios Observados:
+### 9.3 Benefícios Observados:
 |Benefício  | Impacto
 |-----------|---------|
 |Skip-connections        | Preservam detalhes espaciais finos|
@@ -216,7 +216,52 @@ Loss = Dice_Loss + Categorical_Crossentropy
 |Data Prefetch (tf.data) | Reduz tempo de treinamento em ~30%|
 
 
-## 10. ANÁLISE DOS RESULTADOS
+## 10. VISUALIZAÇÃO DOS RESULTADOS
+
+Imagens Geradas:
+```
+Arquivo                      Descrição
+data_samples.png             Exemplos do dataset sintético (imagens + máscaras)
+training_history.png         Curvas de treinamento (Loss, Dice, IoU)
+unet_architecture.png        Diagrama da arquitetura U-Net
+predictions_epoch_5.png      Predições após 5 épocas
+predictions_epoch_10.png     Predições após 10 épocas
+predictions_epoch_15.png     Predições após 15 épocas
+predictions_epoch_20.png     Predições após 20 épocas
+predictions_epoch_25.png     Predições após 25 épocas
+predictions_epoch_30.png     Predições após 30 épocas
+predictions_epoch_35.png     Predições após 35 épocas
+predictions_epoch_40.png     Predições após 40 épocas
+predictions_epoch_45.png     Predições após 45 épocas
+predictions_epoch_50.png     Predições após 50 épocas (finais)
+predictions.png              Predições finais do modelo
+```
+
+
+
+### 10.1 ANÁLISE DAS VISUALIZAÇÕES
+
+Evolução do Treinamento ![Historico de treino](training_history.png):
+- Gráfico 1: Perda (Loss) - Mostra convergência do modelo
+- Gráfico 2: Dice Coefficient - Evolução da sobreposição
+- Gráfico 3: IoU Coefficient - Qualidade da segmentação
+
+## Progresso das Predições ![Prediction Epoch](predictions_epoch_5.png):
+- Coluna 1: Imagem original com figuras geométricas
+- Coluna 2: Máscara verdadeira (ground truth)
+- Coluna 3: Máscara predita pelo modelo
+- Comparação visual mostra melhoria progressiva a cada 5 épocas
+
+## Dataset Sintético ![Data Samples](data_samples.png):
+- Mostra exemplos de círculos, retângulos e triângulos
+- Ilustra as 3 classes: fundo (preto), objeto (vermelho), borda (amarelo)
+
+Arquitetura (unet_architecture.png):
+- Diagrama completo da U-Net
+- Mostra fluxo de dados do encoder ao decoder
+- Destaca as skip-connections
+
+## 11. ANÁLISE DOS RESULTADOS
 **Pontos Fortes:**
 - A U-Net alcançou IoU de 0.8427, superando o benchmark de 0.75
 - O Dice de 0.9145 indica excelente sobreposição entre predição e verdade
@@ -234,7 +279,7 @@ mostrou-se altamente eficaz para segmentação semântica, especialmente em
 objetos com formas bem definidas.
 
 
-## 11. RECOMENDAÇÕES
+## 12. RECOMENDAÇÕES
 
 **Para Melhoria da Segmentação:**
 - Operação com bordas finas: Aumentar peso da classe "borda" na loss
@@ -247,7 +292,7 @@ objetos com formas bem definidas.
 - Dataset: Migrar para datasets reais (Kaggle Carvana, Cityscapes, medical)
 
 
-## 12. LIMITAÇÕES DO ESTUDO
+## 13. LIMITAÇÕES DO ESTUDO
 
 1. Dataset Sintético: Figuras geométricas simples, não representam cenários reais
 2. N Amostral: Apenas 800 imagens (640 para treino)
@@ -256,7 +301,7 @@ objetos com formas bem definidas.
 5. Sem Data Augmentation: Poderia melhorar generalização
 
 
-## 13. TRABALHOS FUTUROS
+## 14. TRABALHOS FUTUROS
 - [ ] Aplicar U-Net em dataset real (Kaggle Carvana Image Masking)
 - [ ] Implementar U-Net++ com skip-connections densas
 - [ ] Adicionar Attention Gates (Attention U-Net)
@@ -267,7 +312,7 @@ objetos com formas bem definidas.
 - [ ] Exportar modelo para TensorFlow Lite (Edge Computing)
 
 
-## 14. COMO EXECUTAR O PROJETO
+## 15. COMO EXECUTAR O PROJETO
 
 1. Instalar dependências:
    pip install tensorflow numpy matplotlib seaborn scikit-learn opencv-python
@@ -281,10 +326,9 @@ objetos com formas bem definidas.
    - Exemplos do dataset (data_samples.png)
    - Predições por época (predictions_epoch_*.png)
    - Arquitetura da U-Net (unet_architecture.png)
-   - Relatório textual (lab3_detailed_report.txt)
 
 
-## 15. AUTOR E CONTATO
+## 16. AUTOR E CONTATO
 Autor: Manuel Oséias Nsimbani
 - Estudante de Engenharia Aeronáutica na Rússia
 - Especialização em Deep Learning e Visão Computacional
@@ -296,7 +340,7 @@ Conecte-se:
 - GitHub: [[nsimbaniclever](https://github.com/nsimbaniclever)]
 - LinkedIn: [seu-perfil]
 
-## 16. REFERÊNCIAS
+## 17. REFERÊNCIAS
 1. Ronneberger, O., Fischer, P., & Brox, T. (2015).
    U-Net: Convolutional Networks for Biomedical Image Segmentation.
    MICCAI 2015. Lecture Notes in Computer Science, vol 9351.
