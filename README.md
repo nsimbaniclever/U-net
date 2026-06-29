@@ -87,6 +87,7 @@ arquitetura U-Net antes de aplicar em dados reais.
 Características:
 
 |Propriedade | Valor|
+|----------|--------|
 |Tipo | Figuras geométricas (círculos, retângulos, triângulos)|
 |Tamanho  | 800 imagens|
 |Resolução | 128 x 128 x 3 (RGB)|
